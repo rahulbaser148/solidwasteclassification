@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solid Waste Classification</title>
+    <style>
+        * {
+            margin: 0;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        body {
+            background-color: whitesmoke;
+        }
+
+        .content {
+            width: 100%;
+            height: fit-content;
+        }
+
+        .headers {
+            width: 100%;
+            height: 40vh;
+            background-image: url('static/image.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .headers h1 {
+            text-align: center;
+            padding-top: 10vh;
+            font-size: 4em;
+        }
+
+        .context {
+            background-color: antiquewhite;
+            padding: 2em;
+            font-size: 2em;
+            height: fit-content;
+            text-align: justify;
+        }
+
+        .capture {
+            box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+            padding: 1.5em;
+            border-radius: 15px;
+            margin: auto;
+            width: fit-content;
+            height: fit-content;
+            justify-content: center;
+        }
+
+        .live {
+            justify-content: center;
+            display: flex;
+            margin: auto;
+        }
+
+        .method {
+            text-align: center;
+            margin: auto;
+        }
+
+        .method input{
+            margin: auto;
+            text-align: center;
+        }
+
+        .method p {
+            text-align: center;
+            margin: auto;
+            font-size: 1.4em;
+        }
+
+        #captureButton{ 
+            cursor: pointer;   
+            border: none;     
+            background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+            margin: auto;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            border-radius: 10px;
+            display: block;
+            font-size: 1em;
+        }
+
+        #takePhotoButton{
+            cursor: pointer;
+            border: none;     
+            background: green;
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            border-radius: 10px;
+            display: block;
+            font-size: 1em;
+        }
+
+        #closeCameraButton {
+            cursor: pointer;
+            border: none;     
+            background: red;
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            border-radius: 10px;
+            display: block;
+            font-size: 1em;
+        }
+
+        #cameraControls {
+            margin-top: 20px;
+        }
+
+        #capturedImage {
+            margin: auto;
+            width: 220px;
+            height: 160px;
+        }
+
+        #uploadInput {
+            display: none; /* Hide the default file input */
+        }
+
+        .custom-upload-button {
+            cursor: pointer;
+            border: none;     
+            background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+            margin: auto;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            border-radius: 10px;
+            display: block;
+            font-size: 1em;
+        }
+
+        .factstext {
+            padding: 2em;
+            font-size: 1.8em;
+            text-align: justify;
+        }
+
+        .classFacts {
+            opacity: 0;
+            overflow: hidden;
+            border-right: 4px solid transparent;
+            animation: typing 2s ease-out 1s forwards, blink 0.5s infinite;
+        }
+
+        @keyframes typing {
+        0% {
+            width: 0;
+            opacity: 0;
+        }
+        100% {
+            width: 100%;
+            opacity: 1;
+        }
+        }
+
+        /* Animation for blinking cursor */
+        @keyframes blink {
+        50% {
+            border-color: transparent;
+        }
+        }
+
+
+        @media screen and (max-width: 800px) {
+            .headers {
+                width: 100%;
+                background: none;
+                height: fit-content;
+            }
+
+            .headers h1 {
+                padding: 0.5em;
+                text-align: left;
+                font-size: 1.6em;
+            }
+
+            .context {
+                background-color: antiquewhite;
+                padding: 1em;
+                font-size: 1em;
+                height: fit-content;
+                text-align: justify;
+            }
+
+            .capture {
+                box-shadow: none;
+                padding: 0.5em;
+                border-radius: none;
+                margin: auto;
+                width: 90%;
+                height: fit-content;
+                justify-content: center;
+            }
+
+            .live {
+                justify-content: center;
+                display: flex;
+                margin: auto;
+            }
+
+            .method {
+                text-align: center;
+                margin: auto;
+            }
+
+            .method input{
+                margin: auto;
+                text-align: center;
+            }
+
+            .method p {
+                text-align: center;
+                margin: auto;
+                font-size: 0.8em;
+            }
+
+            #captureButton{ 
+                cursor: pointer;   
+                border: none;     
+                background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+                margin: auto;
+                width: 100%;
+                padding: 5px 35px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                border-radius: 10px;
+                display: block;
+                font-size: 0.8em;
+            }
+
+            #takePhotoButton{
+                cursor: pointer;
+                border: none;     
+                background: green;
+                margin: 10px;
+                padding: 5px 35px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                border-radius: 10px;
+                display: block;
+                font-size: 0.8em;
+            }
+
+            #closeCameraButton {
+                cursor: pointer;
+                border: none;     
+                background: red;
+                margin: 10px;
+                padding: 5px 35px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                border-radius: 10px;
+                display: block;
+                font-size: 0.8em;
+            }
+
+            #cameraControls {
+                margin-top: 20px;
+            }
+
+            #capturedImage {
+                margin: auto;
+                width: 220px;
+                height: 160px;
+            }
+
+            #uploadInput {
+                display: none; /* Hide the default file input */
+            }
+
+            .custom-upload-button {
+                cursor: pointer;
+                border: none;     
+                background-image: linear-gradient( 135deg, #6B73FF 10%, #000DFF 100%);
+                margin: auto;
+                padding: 5px 35px;
+                text-align: center;
+                text-transform: uppercase;
+                transition: 0.5s;
+                background-size: 200% auto;
+                color: white;            
+                border-radius: 10px;
+                display: block;
+                font-size: 0.8em;
+            }
+
+            #video{
+                width: 100%;
+            }
+
+            .factstext {
+                padding: 0.5em;
+                font-size: 1em;
+                text-align: justify;
+            }
+
+            .classFacts {
+                opacity: 0;
+                overflow: hidden;
+                border-right: 4px solid transparent;
+                animation: typing 2s ease-out 1s forwards, blink 0.5s infinite;
+            }
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="maindiv">
+        <div class="main">
+            <div class="content">
+                <div class="headers">
+                    <h1>Solid Waste Classification</h1>
+                </div>
+                <div class="context">
+                    <p style="color: grey;">
+                        Our project aims to develop an intelligent system that can classify solid waste images into various categories, including <b class="types" style="color: #006400;">Aluminium, Carton, Glass, Organic Waste, Other Plastics, Paper and Cardboard, Plastic, Textiles, and Wood.</b> By leveraging advanced machine learning techniques and computer vision algorithms, our system can accurately identify and categorize different types of waste materials from images. This will not only aid in streamlining waste management processes but also contribute to raising awareness about the importance of proper waste segregation and recycling.
+                    </p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <div class="capture">
+                <span class="method">
+                    <label for="uploadInput" class="custom-upload-button">Upload Image</label>
+                    <input type="file" id="uploadInput" accept="image/*">
+                </span>
+                <br>
+                
+                <div id="cameraControls" style="display: none;">
+                    <video id="video" autoplay></video><br>
+                    <span class="live">
+                        <button id="takePhotoButton">Take Photo</button>
+                        <button id="closeCameraButton">Close Camera</button>
+                    </span>
+                </div>
+
+                <div id="predictionAndImage">
+                    <div class="prediction-result" style="text-align: center; color:#006400; font-size: 1.4em; font-weight: bold; margin-top: 0.5em; margin-bottom: 0.5em;"></div>
+                    <img id="capturedImage" src="" alt="Captured Image" style="display:none;"><br>
+                </div>
+                
+                <button id="captureButton">Capture Image</button>
+            </div>   
+        </div>
+        <canvas style="display: none;" id="canvas" width="width" height="height"></canvas>
+    </div>
+    <div class="facts">
+        <div class="factstext">
+            <div id="woodFacts" class="classFacts" style="display: none;">
+                <h2>Wood</h2>
+                <p>
+                    Wood is one of the most versatile and sustainable materials on the planet. It can be reused and recycled in various ways, such as furniture making, construction, and paper production. Recycling wood helps to reduce deforestation and greenhouse gas emissions.
+                </p>
+            </div>
+            <div id="glassFacts" class="classFacts" style="display: none;">
+                <h2>Glass</h2>
+                <p>
+                    Glass is 100% recyclable and can be recycled endlessly without losing quality or purity. Recycling glass conserves raw materials, reduces energy consumption, and decreases greenhouse gas emissions. Despite its recyclability, many glass items still end up in landfills due to insufficient recycling infrastructure and contamination issues.
+                </p>
+            </div>
+            <div id="plasticFacts" class="classFacts" style="display: none;">
+                <h2>Plastic</h2>
+                <p>
+                    Plastic pollution is a significant environmental issue, with millions of tons of plastic waste entering oceans and landfills every year. Only a small percentage of plastic is recycled globally, with the majority ending up in landfills, oceans, or the environment. Single-use plastics, such as plastic bags and water bottles, have a particularly detrimental impact on ecosystems and wildlife.
+                </p>
+            </div>
+            <div id="textilesFacts" class="classFacts" style="display: none;">
+                <h2>Textiles</h2>
+                <p>
+                    The textile industry is one of the largest polluters globally due to its massive water consumption and chemical usage. Textiles can be recycled into new fabrics or upcycled into various products like bags, rugs, and insulation. Donating unwanted textiles to charity organizations can help extend their lifespan and reduce waste.
+                </p>
+            </div>
+            <div id="paperandcarboardFacts" class="classFacts" style="display: none;">
+                <h2>Paper and Carboard</h2>
+                <p>
+                    Paper and cardboard are widely recycled materials, with many communities offering curbside recycling programs for these items. Recycling paper and cardboard helps to conserve natural resources, reduce energy consumption, and minimize landfill waste. Producing recycled paper uses significantly less water and energy compared to producing paper from virgin fibers.
+                </p>
+            </div>
+            <div id="otherplasticFacts" class="classFacts" style="display: none;">
+                <h2>Other Plastic</h2>
+                <p>
+                    This category may include various types of plastics beyond the common ones like PET, HDPE, and PVC. Some plastics, such as polystyrene (Styrofoam) and PVC (vinyl), are challenging to recycle and can persist in the environment for hundreds of years. Efforts to reduce plastic consumption and promote alternatives like biodegradable plastics are underway to address plastic pollution.
+                </p>
+            </div>
+            <div id="organicFacts" class="classFacts" style="display: none;">
+                <h2>Organic Waste</h2>
+                <p>
+                    Organic waste, including food scraps and yard waste, comprises a significant portion of municipal solid waste. Composting organic waste can produce nutrient-rich soil amendments for gardening and agriculture, reducing the need for chemical fertilizers. Landfilling organic waste generates methane, a potent greenhouse gas, making proper management of organic waste crucial for mitigating climate change.
+                </p>
+            </div>
+            <div id="cartonFacts" class="classFacts" style="display: none;">
+                <h2>Carton</h2>
+                <p>
+                    Cartons, such as those used for milk and juice packaging, are made from a combination of paper, plastic, and aluminum layers. Recycling cartons helps recover valuable materials like paper fiber and reduces the environmental impact of carton production. Some recycling facilities accept cartons for processing, but not all communities have access to carton recycling programs.
+                </p>
+            </div>
+            <div id="aluminiumFacts" class="classFacts" style="display: none;">
+                <h2>Aluminium</h2>
+                <p>
+                    Aluminium is one of the most recyclable materials, with nearly 75% of all aluminium ever produced still in use today. Recycling aluminium saves up to 95% of the energy required to produce it from raw materials and reduces greenhouse gas emissions. Recycling aluminium cans is particularly efficient, with recycled cans returning to store shelves in as little as 60 days.
+                </p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('canvas');
+        const captureButton = document.getElementById('captureButton');
+        const takePhotoButton = document.getElementById('takePhotoButton');
+        const closeCameraButton = document.getElementById('closeCameraButton');
+        const capturedImage = document.getElementById('capturedImage');
+        const cameraControls = document.getElementById('cameraControls');
+        const predictionResult = document.querySelector('.prediction-result');
+        const uploadInput = document.getElementById('uploadInput');
+        const predictionAndImage = document.getElementById('predictionAndImage');
+        let stream = null;
+    
+        function startCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(mediaStream => {
+                    stream = mediaStream;
+                    video.srcObject = mediaStream;
+                    video.play();
+                })
+                .catch(error => {
+                    console.error('Error accessing camera:', error);
+                });
+        }
+    
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => {
+                    track.stop();
+                });
+            }
+        }
+    
+        captureButton.addEventListener('click', () => {
+            cameraControls.style.display = 'block';
+            captureButton.style.display = 'none'; // Hide capture button
+            clearPrediction(); // Clear predicted class
+            hideCapturedImage(); // Hide captured image
+            startCamera(); // Start camera when capture button is clicked
+        });
+    
+        takePhotoButton.addEventListener('click', () => {
+            const context = canvas.getContext('2d');
+            context.drawImage(video, 0, 0, canvas.width, canvas.height);
+            const imageData = canvas.toDataURL('image/png');
+
+            document.querySelectorAll('.classFacts').forEach(div => {
+                div.style.display = 'none';
+            });
+
+            classifyImage(imageData);
+        });
+    
+        closeCameraButton.addEventListener('click', () => {
+            cameraControls.style.display = 'none';
+            captureButton.style.display = 'block'; 
+            document.querySelectorAll('.classFacts').forEach(div => {
+                div.style.display = 'none';
+            });// Show capture button
+            clearPrediction(); // Clear predicted class
+            hideCapturedImage(); // Hide captured image
+            stopCamera(); // Stop camera when close camera button is clicked
+        });
+    
+        // Add change event listener to file input
+        uploadInput.addEventListener('change', () => {
+            const file = uploadInput.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const imageData = event.target.result;
+                    clearPrediction(); // Clear existing prediction
+                    classifyImage(imageData);
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    
+        function classifyImage(imageData) {
+        fetch('/classify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ image: imageData.split(',')[1] })
+        })
+        .then(response => response.json())
+        .then(data => {
+            const predictedClass = data.predicted_class;
+            const predictionProbability = data.predicted_class_probability;
+            let classification = '';
+
+            if (predictedClass === 'Wood') {
+                classification = 'Organic and Non-recyclable';
+                document.getElementById('woodFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#woodFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Glass') {
+                classification = 'Inorganic and Recyclable';
+                document.getElementById('glassFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#glassFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            
+            } else if (predictedClass === 'Textiles') {
+                classification = 'Organic and Recyclable';
+                document.getElementById('textilesFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#textilesFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Organic') {
+                classification = 'Organic and Non-Recyclable';
+                document.getElementById('organicFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#organicFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Carton') {
+                classification = 'Inorganic and Recyclable';
+                document.getElementById('cartonFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#cartonFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Plastic') {
+                classification = 'Inorganic and Non-Recyclable';
+                document.getElementById('plasticFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#plasticFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Other Plastics') {
+                classification = 'Inorganic and Non-Recyclable';
+                document.getElementById('otherplasticFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#otherplasticFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Aluminium') {
+                classification = 'Inorganic and Recyclable';
+                document.getElementById('aluminiumFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#aluminiumFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            } else if (predictedClass === 'Paper and Cardboard') {
+                classification = 'Organic and Recyclable';
+                document.getElementById('paperandcarboardFacts').style.display = 'block';
+                document.querySelectorAll('.classFacts:not(#paperandcarboardFacts)').forEach(div => {
+                    div.style.display = 'none';
+                });
+            }
+
+
+
+            // Check if the predicted class falls under the specified subcategories
+            if (predictedClass === 'Paper and Cardboard' || predictedClass === 'Textiles') {
+                classification = 'Organic and Recyclable';
+            } else if (predictedClass === 'Wood' || predictedClass === 'Organic') {
+                classification = 'Organic and Non-recyclable';
+            } else if (predictedClass === 'Glass' || predictedClass === 'Carton' || predictedClass === 'Aluminium') {
+                classification = 'Inorganic and Recyclable';
+            } else if (predictedClass === 'Plastic' || predictedClass === 'Other Plastics') {
+                classification = 'Inorganic and Non-recyclable';
+            } else {
+                classification = 'Unknown';
+            }
+
+            predictionResult.innerHTML = `${predictedClass}: ${predictionProbability}%<br>${classification}`;
+            capturedImage.src = imageData; // Set captured image source
+            showPrediction(); // Show prediction text and image
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    }
+    
+        function showPrediction() {
+            predictionResult.style.display = 'block'; // Show prediction text
+            capturedImage.style.display = 'block'; // Show captured image
+        }
+    
+        function clearPrediction() {
+            predictionResult.textContent = ''; // Clear prediction text
+        }
+    
+        // Function to hide captured image
+        function hideCapturedImage() {
+            capturedImage.style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>
+
