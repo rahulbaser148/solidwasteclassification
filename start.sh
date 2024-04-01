@@ -7,7 +7,7 @@ python3.10 -m venv venv
 source venv/bin/activate
 
 # Install packages from requirements.txt
-pip install -r requirements.txt
+pip install -r requirement.txt
 
 # Run Python script
 python app.py
