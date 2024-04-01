@@ -1,24 +1,10 @@
-#!/bin/bash
+python3 -m venv venv
 
-# Exit early on errors
-set -eu
+# Activate virtual environment
+source venv/bin/activate
 
-# Python buffers stdout. Without this, you won't see what you "print" in the Activity Logs
-export PYTHONUNBUFFERED=true
+# Install packages from requirements.txt
+pip install -r requirement.txt
 
-# Install Python 3 virtual env
-VIRTUALENV=.data/venv
-
-if [ ! -d $VIRTUALENV ]; then
-  python3 -m venv $VIRTUALENV
-fi
-
-if [ ! -f $VIRTUALENV/bin/pip ]; then
-  curl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | $VIRTUALENV/bin/python
-fi
-
-# Install the requirements
-$VIRTUALENV/bin/pip install -r requirement.txt
-
-# Run a glorious Python 3 server
-$VIRTUALENV/bin/python3 app.py
+# Run Python script
+python app.py
