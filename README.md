@@ -1,7 +1,3 @@
-# solidwasteclassification
-
-Here's a suggested README section for your GitHub repository on solid waste classification using ResNet152 and VGG19 models:
-
 # Solid Waste Classification using Deep Learning
 
 This repository contains the code and resources for an intelligent solid waste classification system developed using deep learning techniques. The project aims to accurately classify waste into nine distinct classes, including aluminum, glass, paper and cardboard, wood, textiles, plastic, other plastic, organic and carton. And further categorize waste into organic and inorganic components.
