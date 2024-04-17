@@ -8,13 +8,13 @@ from flask import jsonify
 import base64
 
 
+
 app = Flask(__name__)
-
 app.config['SECRET_KEY'] = 'your_secret_key_here'
-# Load the pre-trained model
-model = load_model('vgg19_history_10.h5')
 
-# Mapping class indices to class names
+model1 = load_model('vgg19_history_10.h5')
+model2 = load_model('model_with_history.h5')
+
 class_names = {
     0: 'Aluminium',
     1: 'Carton',
@@ -26,21 +26,33 @@ class_names = {
     7: 'Textiles',
     8: 'Wood',
 }
- # Function to preprocess the image before feeding it to the model
+
 def preprocess_image(image_bytes):
     img = image.load_img(io.BytesIO(image_bytes), target_size=(224, 224))
     img_array = image.img_to_array(img)
     img_array = np.expand_dims(img_array, axis=0)
     return img_array
 
-# Function to predict the class of the image
-def predict_image_class(image_bytes, model):
+def predict_image_class(image_bytes, model1, model2, threshold=5):
     processed_img = preprocess_image(image_bytes)
-    prediction = model.predict(processed_img)
-    predicted_class_index = np.argmax(prediction)
-    predicted_class = class_names.get(predicted_class_index, 'Unknown')
-    predicted_class_probability = round(np.max(prediction) * 100, 2)  # Probability rounded to 2 decimal places
-    return predicted_class, predicted_class_probability
+    prediction1 = model1.predict(processed_img)
+    prediction2 = model2.predict(processed_img)
+
+    combined_prediction = (prediction1 + prediction2) / 2
+
+    predicted_class_indices = combined_prediction.argsort()[0][-2:]
+    predicted_classes = [class_names.get(index, 'Unknown') for index in predicted_class_indices]
+    predicted_probabilities = [round(combined_prediction[0, index] * 100, 2) for index in predicted_class_indices]
+
+
+    if abs(predicted_probabilities[0] - predicted_probabilities[1]) <= threshold:
+        return predicted_classes, predicted_probabilities
+    else:
+        max_probability_index = np.argmax(combined_prediction)
+        max_probability_class = class_names.get(max_probability_index, 'Unknown')
+        return [max_probability_class], [round(np.max(combined_prediction) * 100, 2)]
+
+
 
 @app.route('/')
 def index():
@@ -50,13 +62,9 @@ def index():
 def classify():
     if request.method == 'POST':
         try:
-            # Get the image data from the request body
             image_data = request.get_json()['image']
             image_bytes = base64.b64decode(image_data)
-
-            # Predict the class of the captured image
-            predicted_class, predicted_class_probability = predict_image_class(image_bytes, model)
-
+            predicted_class, predicted_class_probability = predict_image_class(image_bytes, model1, model2)
             return jsonify({'predicted_class': predicted_class, 'predicted_class_probability': predicted_class_probability})
         except Exception as e:
             return jsonify({'error': 'Error processing image'})
