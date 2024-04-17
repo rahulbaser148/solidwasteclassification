@@ -16,7 +16,7 @@ Improper waste management poses severe environmental and health risks, contribut
 
 ## Repository Structure
 
-- `model/`: Contains the pre-trained ResNet152 and VGG19 models.
+- `models/`: Contains the pre-trained ResNet50, ResNet152, VGG16 and VGG19 models.
 - `app.py`: The Python file for the Flask web application.
 - `templates/`: Directory containing HTML templates for the web interface.
 - `static/`: Directory for static files (images).
