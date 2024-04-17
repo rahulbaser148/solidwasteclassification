@@ -154,6 +154,7 @@
         .factstext {
             padding: 2em;
             font-size: 1.8em;
+            color: rgb(90, 90, 90);
             text-align: justify;
         }
 
@@ -161,16 +162,20 @@
             opacity: 0;
             overflow: hidden;
             border-right: 4px solid transparent;
-            animation: typing 2s ease-out 1s forwards, blink 0.5s infinite;
+            animation: typing 2s ease-in 1s forwards, blink 0.5s infinite;
+        }
+
+        li {
+            margin-bottom: 0.7em;
         }
 
         @keyframes typing {
         0% {
-            width: 0;
+            height: 0;
             opacity: 0;
         }
         100% {
-            width: 100%;
+            height: fit-content;
             opacity: 1;
         }
         }
@@ -380,59 +385,125 @@
     <div class="facts">
         <div class="factstext">
             <div id="woodFacts" class="classFacts" style="display: none;">
-                <h2>Wood</h2>
+                <br>
+                <h2>Wood<span style="color: #006400;"> | Organic and Non-recyclable</span></h2>
                 <p>
                     Wood is one of the most versatile and sustainable materials on the planet. It can be reused and recycled in various ways, such as furniture making, construction, and paper production. Recycling wood helps to reduce deforestation and greenhouse gas emissions.
-                </p>
+
+                    Wood waste contributes to deforestation and habitat loss when not properly managed. Recycling wood not only conserves natural resources but also reduces energy consumption and greenhouse gas emissions associated with manufacturing new wood products.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Separate wood waste, such as scrap wood, pallets, and furniture, from other waste streams.</li>
+                    <li>Check if your local area has a wood recycling facility or drop-off location.</li>
+                    <li>If no recycling options are available, consider repurposing or upcycling the wood for other projects or crafts.</li>
+                    <li>As a last resort, dispose of untreated wood waste in the regular trash bin or consider composting if allowed in your area.</li></ol>
+                </p><br><hr>
             </div>
             <div id="glassFacts" class="classFacts" style="display: none;">
-                <h2>Glass</h2>
+                <br>
+                <h2>Glass<span style="color: #006400;"> | Inorganic and Recyclable</span></h2>
                 <p>
-                    Glass is 100% recyclable and can be recycled endlessly without losing quality or purity. Recycling glass conserves raw materials, reduces energy consumption, and decreases greenhouse gas emissions. Despite its recyclability, many glass items still end up in landfills due to insufficient recycling infrastructure and contamination issues.
+                    Glass is 100% recyclable and can be recycled endlessly without losing quality or purity. Recycling glass conserves raw materials, reduces energy consumption, and decreases greenhouse gas emissions. Despite its recyclability, many glass items still end up in landfills due to insufficient recycling infrastructure and contamination issues. Glass is one of the most sustainable materials as it can be recycled endlessly without losing its quality or purity. Recycling glass also reduces air pollution and energy consumption compared to manufacturing new glass.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Rinse and remove any caps or lids from glass bottles and jars.</li>
+                    <li>If recycling at home, store them in a designated bin or bag.</li>
+                    <li>If not recycling at home, locate the nearest glass recycling drop-off point or recycling center.</li>
+                    <li>Transport the collected glass to the recycling facility.</li></ol>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="plasticFacts" class="classFacts" style="display: none;">
-                <h2>Plastic</h2>
+                <br>
+                <h2>Plastic<span style="color: #006400;"> | Inorganic and Non-recyclable</span></h2>
                 <p>
-                    Plastic pollution is a significant environmental issue, with millions of tons of plastic waste entering oceans and landfills every year. Only a small percentage of plastic is recycled globally, with the majority ending up in landfills, oceans, or the environment. Single-use plastics, such as plastic bags and water bottles, have a particularly detrimental impact on ecosystems and wildlife.
+                    Plastic pollution is a significant environmental issue, with millions of tons of plastic waste entering oceans and landfills every year. Only a small percentage of plastic is recycled globally, with the majority ending up in landfills, oceans, or the environment. Single-use plastics, such as plastic bags and water bottles, have a particularly detrimental impact on ecosystems and wildlife. Plastic pollution is a significant environmental issue, with an estimated 8 million tons of plastic waste entering the oceans every year, posing a threat to marine life and ecosystems.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Rinse and remove any caps or lids from plastic bottles and containers.</li>
+                    <li>If recycling at home, store them in a designated bin or bag.</li>
+                    <li>If not recycling at home, locate the nearest plastic recycling drop-off point or recycling center.</li>
+                    <li>Transport the collected plastic to the recycling facility.</li></ol>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="textilesFacts" class="classFacts" style="display: none;">
-                <h2>Textiles</h2>
+                <br>
+                <h2>Textiles<span style="color: #006400;"> | Organic and Recyclable</span></h2>
                 <p>
-                    The textile industry is one of the largest polluters globally due to its massive water consumption and chemical usage. Textiles can be recycled into new fabrics or upcycled into various products like bags, rugs, and insulation. Donating unwanted textiles to charity organizations can help extend their lifespan and reduce waste.
+                    The textile industry is one of the largest polluters globally due to its massive water consumption and chemical usage. Textiles can be recycled into new fabrics or upcycled into various products like bags, rugs, and insulation. Donating unwanted textiles to charity organizations can help extend their lifespan and reduce waste. The textile industry is one of the most polluting industries in the world, and discarded textiles often end up in landfills or incinerators, contributing to environmental degradation and greenhouse gas emissions.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Donate or sell gently used clothing and textiles to charitable organizations or secondhand stores.</li>
+                    <li>For worn-out or damaged textiles, check if your local area has a textile recycling program or drop-off location.</li>
+                    <li>If no recycling options are available, consider repurposing or upcycling textiles for other uses, such as rags, quilts, or crafts.</li>
+                    <li>As a last resort, dispose of unusable textiles in the regular trash bin.</li></ol>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="paperandcarboardFacts" class="classFacts" style="display: none;">
-                <h2>Paper and Carboard</h2>
+                <br>
+                <h2>Paper and Carboard<span style="color: #006400;"> | Organic and Recyclable</span></h2>
                 <p>
-                    Paper and cardboard are widely recycled materials, with many communities offering curbside recycling programs for these items. Recycling paper and cardboard helps to conserve natural resources, reduce energy consumption, and minimize landfill waste. Producing recycled paper uses significantly less water and energy compared to producing paper from virgin fibers.
+                    Paper and cardboard are widely recycled materials, with many communities offering curbside recycling programs for these items. Recycling paper and cardboard helps to conserve natural resources, reduce energy consumption, and minimize landfill waste. Producing recycled paper uses significantly less water and energy compared to producing paper from virgin fibers. Recycling paper and cardboard not only saves trees but also reduces water and energy consumption, as well as greenhouse gas emissions associated with manufacturing new paper products.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Flatten and bundle paper and cardboard to save space.</li>
+                    <li>If recycling at home, store them in a designated bin or bag.</li>
+                    <li>If not recycling at home, locate the nearest paper and cardboard recycling drop-off point or recycling center.</li>
+                    <li>Transport the collected paper and cardboard to the recycling facility.</li></ol>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="otherplasticFacts" class="classFacts" style="display: none;">
-                <h2>Other Plastic</h2>
+                <br>
+                <h2>Other Plastic<span style="color: #006400;"> | Inorganic and Non-recyclable</span></h2>
                 <p>
-                    This category may include various types of plastics beyond the common ones like PET, HDPE, and PVC. Some plastics, such as polystyrene (Styrofoam) and PVC (vinyl), are challenging to recycle and can persist in the environment for hundreds of years. Efforts to reduce plastic consumption and promote alternatives like biodegradable plastics are underway to address plastic pollution.
+                    This category may include various types of plastics beyond the common ones like PET, HDPE, and PVC. Some plastics, such as polystyrene (Styrofoam) and PVC (vinyl), are challenging to recycle and can persist in the environment for hundreds of years. Efforts to reduce plastic consumption and promote alternatives like biodegradable plastics are underway to address plastic pollution. Many types of plastics, such as polystyrene (Styrofoam) and vinyl, are not widely accepted for recycling due to their complex composition and lack of recycling infrastructure, leading to their accumulation in landfills or oceans.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Reduce the use of these plastics whenever possible by opting for more sustainable alternatives.</li>
+                    <li>If disposing of them, place them in the regular trash bin.</li>
+                    <li>Check with your local recycling program or waste management authority to see if they have any specialized recycling programs for these types of plastics.</li></ol>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="organicFacts" class="classFacts" style="display: none;">
-                <h2>Organic Waste</h2>
+                <br>
+                <h2>Organic Waste<span style="color: #006400;"> | Organic and Non-recyclable</span></h2>
                 <p>
-                    Organic waste, including food scraps and yard waste, comprises a significant portion of municipal solid waste. Composting organic waste can produce nutrient-rich soil amendments for gardening and agriculture, reducing the need for chemical fertilizers. Landfilling organic waste generates methane, a potent greenhouse gas, making proper management of organic waste crucial for mitigating climate change.
+                    Organic waste, including food scraps and yard waste, comprises a significant portion of municipal solid waste. Composting organic waste can produce nutrient-rich soil amendments for gardening and agriculture, reducing the need for chemical fertilizers. Landfilling organic waste generates methane, a potent greenhouse gas, making proper management of organic waste crucial for mitigating climate change. Composting organic waste not only diverts it from landfills but also creates nutrient-rich soil for gardening, reducing the need for chemical fertilizers and improving soil quality.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Separate organic waste, such as food scraps and yard waste, from other waste streams.</li>
+                    <li>If composting at home, follow proper composting methods and maintain the compost bin.</li>
+                    <li>If not composting at home, check if your local municipality has a composting program or facility.</li>
+                    <li>Transport the collected organic waste to the composting facility.</li>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="cartonFacts" class="classFacts" style="display: none;">
-                <h2>Carton</h2>
+                <br>
+                <h2>Carton<span style="color: #006400;"> | Inorganic and Recyclable</span></h2>
                 <p>
-                    Cartons, such as those used for milk and juice packaging, are made from a combination of paper, plastic, and aluminum layers. Recycling cartons helps recover valuable materials like paper fiber and reduces the environmental impact of carton production. Some recycling facilities accept cartons for processing, but not all communities have access to carton recycling programs.
+                    Cartons, such as those used for milk and juice packaging, are made from a combination of paper, plastic, and aluminum layers. Recycling cartons helps recover valuable materials like paper fiber and reduces the environmental impact of carton production. Some recycling facilities accept cartons for processing, but not all communities have access to carton recycling programs. Cartons are made from a combination of paper, plastic, and aluminum, making them challenging to recycle. However, many recycling programs now accept them, preventing them from ending up in landfills.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Check with your local recycling program to see if they accept cartons.</li>
+                    <li>If accepted, rinse and flatten the cartons to save space.</li>
+                    <li>Store them in a designated bin or bag for recycling.</li>
+                    <li>If not accepted, dispose of them in the regular trash bin.</li>
+                    </ol>
                 </p>
-            </div>
+                <br><hr></div>
             <div id="aluminiumFacts" class="classFacts" style="display: none;">
-                <h2>Aluminium</h2>
+                <br>
+                <h2>Aluminium<span style="color: #006400;"> | Inorganic and Recyclable</span></h2>
                 <p>
-                    Aluminium is one of the most recyclable materials, with nearly 75% of all aluminium ever produced still in use today. Recycling aluminium saves up to 95% of the energy required to produce it from raw materials and reduces greenhouse gas emissions. Recycling aluminium cans is particularly efficient, with recycled cans returning to store shelves in as little as 60 days.
+                    Aluminium is one of the most recyclable materials, with nearly 75% of all aluminium ever produced still in use today. Recycling aluminium saves up to 95% of the energy required to produce it from raw materials and reduces greenhouse gas emissions. Recycling aluminium cans is particularly efficient, with recycled cans returning to store shelves in as little as 60 days. Recycling aluminium cans requires only 5% of the energy needed to produce new cans from raw materials, making it highly energy-efficient and environmentally friendly.
+                    <br><br>Proper Disposal/Recycling:<br><br>
+                    <ol>
+                    <li>Rinse and clean aluminium cans and foils to remove any residue.</li>
+                    <li>If recycling at home, store them in a designated bin or bag.</li>
+                    <li>If not recycling at home, locate the nearest recycling center or drop-off point for aluminium.</li>
+                    <li>Transport the collected aluminium to the recycling facility.</li>
+                    </ol>
                 </p>
-            </div>
+                <br><hr></div>
         </div>
     </div>
     <br>
@@ -502,14 +573,16 @@
             stopCamera(); // Stop camera when close camera button is clicked
         });
     
-        // Add change event listener to file input
         uploadInput.addEventListener('change', () => {
             const file = uploadInput.files[0];
             if (file) {
                 const reader = new FileReader();
                 reader.onload = function(event) {
                     const imageData = event.target.result;
-                    clearPrediction(); // Clear existing prediction
+                    clearPrediction(); 
+                    document.querySelectorAll('.classFacts').forEach(div => {
+                        div.style.display = 'none';
+                    });
                     classifyImage(imageData);
                 };
                 reader.readAsDataURL(file);
@@ -528,83 +601,62 @@
         .then(data => {
             const predictedClass = data.predicted_class;
             const predictionProbability = data.predicted_class_probability;
-            let classification = '';
+            
+            predictedClass.forEach(predictedClass => {
 
             if (predictedClass === 'Wood') {
-                classification = 'Organic and Non-recyclable';
-                document.getElementById('woodFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#woodFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('woodFacts');
             } else if (predictedClass === 'Glass') {
-                classification = 'Inorganic and Recyclable';
-                document.getElementById('glassFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#glassFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
-            
+                showClassInfo('glassFacts');
             } else if (predictedClass === 'Textiles') {
-                classification = 'Organic and Recyclable';
-                document.getElementById('textilesFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#textilesFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('textilesFacts');
             } else if (predictedClass === 'Organic') {
-                classification = 'Organic and Non-Recyclable';
-                document.getElementById('organicFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#organicFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('organicFacts');
             } else if (predictedClass === 'Carton') {
-                classification = 'Inorganic and Recyclable';
-                document.getElementById('cartonFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#cartonFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('cartonFacts');
             } else if (predictedClass === 'Plastic') {
-                classification = 'Inorganic and Non-Recyclable';
-                document.getElementById('plasticFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#plasticFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('plasticFacts');
             } else if (predictedClass === 'Other Plastics') {
-                classification = 'Inorganic and Non-Recyclable';
-                document.getElementById('otherplasticFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#otherplasticFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('otherplasticFacts');
             } else if (predictedClass === 'Aluminium') {
-                classification = 'Inorganic and Recyclable';
-                document.getElementById('aluminiumFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#aluminiumFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('aluminiumFacts');
             } else if (predictedClass === 'Paper and Cardboard') {
-                classification = 'Organic and Recyclable';
-                document.getElementById('paperandcarboardFacts').style.display = 'block';
-                document.querySelectorAll('.classFacts:not(#paperandcarboardFacts)').forEach(div => {
-                    div.style.display = 'none';
-                });
+                showClassInfo('paperandcarboardFacts');
             }
 
+                console.log(`${predictedClass}`);
+            });
 
+            function showClassInfo(classId) {
+                document.getElementById(classId).style.display = 'block';
+                // document.querySelectorAll('.classFacts:not(#' + classId + ')').forEach(div => {
+                //     div.style.display = 'none';
+                // });
+            }
 
-            // Check if the predicted class falls under the specified subcategories
-            if (predictedClass === 'Paper and Cardboard' || predictedClass === 'Textiles') {
-                classification = 'Organic and Recyclable';
-            } else if (predictedClass === 'Wood' || predictedClass === 'Organic') {
-                classification = 'Organic and Non-recyclable';
-            } else if (predictedClass === 'Glass' || predictedClass === 'Carton' || predictedClass === 'Aluminium') {
-                classification = 'Inorganic and Recyclable';
-            } else if (predictedClass === 'Plastic' || predictedClass === 'Other Plastics') {
-                classification = 'Inorganic and Non-recyclable';
+            if (predictedClass instanceof Array) {
+                const hasLowProbability = predictionProbability.some(prob => prob < 60);
+                predictionResult.innerHTML = predictedClass.map((cls, idx) => {
+                    if (hasLowProbability && predictionProbability[idx] < 60) {
+                        return `${cls}: ${predictionProbability[idx]}%<br>`;
+                    } else {
+                        return `${cls}: ${predictionProbability[idx]}%<br>`;
+                    }
+                }).join('');
+
+                if (hasLowProbability) {
+                    predictionResult.innerHTML += `<span style="color: red; font-size: 0.6em"><i>Please take a clear photo of an object or try different angle.</i></span>`;
+                }
             } else {
-                classification = 'Unknown';
+                if (predictionProbability < 60) {
+                    predictionResult.innerHTML = `${predictedClass}: ${predictionProbability}%<br><span style="color: red; font-size: 0.6em"><i>Please take a clear photo of an object or try different angle.<i></span>`;
+                }
+                predictionResult.innerHTML = `${predictedClass}: ${predictionProbability}%<br>`;
             }
 
-            predictionResult.innerHTML = `${predictedClass}: ${predictionProbability}%<br>${classification}`;
-            capturedImage.src = imageData; // Set captured image source
-            showPrediction(); // Show prediction text and image
+            capturedImage.src = imageData;
+            showPrediction(); 
+
         })
         .catch(error => {
             console.error('Error:', error);
@@ -612,12 +664,12 @@
     }
     
         function showPrediction() {
-            predictionResult.style.display = 'block'; // Show prediction text
-            capturedImage.style.display = 'block'; // Show captured image
+            predictionResult.style.display = 'block';
+            capturedImage.style.display = 'block'; 
         }
     
         function clearPrediction() {
-            predictionResult.textContent = ''; // Clear prediction text
+            predictionResult.textContent = ''; 
         }
     
         // Function to hide captured image
@@ -628,4 +680,3 @@
     
 </body>
 </html>
-
