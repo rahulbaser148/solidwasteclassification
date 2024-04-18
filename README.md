@@ -36,3 +36,9 @@ Improper waste management poses severe environmental and health risks, contribut
 2. Choose either the "Upload Image" or "Capture Image" option to provide an image of waste.
 3. The system will process the image through the ResNet152 or VGG19 model and display the predicted waste category.
 4. Additional information about the classified waste material, including its environmental impact and recommended disposal or recycling methods, will be provided.
+
+## Contributors
+1. Juhie Sayyed
+2. Ajay Kumar
+3. Vedant Khergade
+4. Rahul Baser
